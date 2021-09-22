@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class NanoleafClient {
@@ -24,8 +23,7 @@ public class NanoleafClient {
         this.host = host;
         this.port = port;
         this.accessToken = accessToken;
-        //this.baseUrl = String.format("http://%s:%s/api/v1/%s", this.host, this.port, this.accessToken);
-        this.baseUrl = "https://reqres.in/api"; // testing api url
+        this.baseUrl = "http://" + this.host + ":" + this.port + "/api/v1/" + this.accessToken;
     }
 
     NanoleafClient(String host, String accessToken) {
@@ -118,8 +116,8 @@ public class NanoleafClient {
     }
 
     // TODO: this.
-    public void setEffects() {
-        //this.put("/effects", "{\"write\" : {\"command\" : \"request\", \"animName\" : \"Northern Lights\"}}");
+    public void setEffects(String effect) {
+        this.put("/effects", "{\"write\" : {\"command\" : \"request\", \"animName\" : " + effect + "}}");
     }
 
     public void getLayout() {
@@ -187,6 +185,8 @@ public class NanoleafClient {
     }
 
     // Requests:
+    enum Method { GET, PUT, POST, DELETE }
+
     private void get(String path) {
         this.request(Method.GET, path, null);
     }
@@ -203,7 +203,6 @@ public class NanoleafClient {
         this.request(Method.DELETE, path, body);
     }
 
-    enum Method { GET, PUT, POST, DELETE }
     private void request(Method method, String path, @Nullable String body) {
         try {
             URL url = new URL(this.baseUrl + path);
@@ -217,7 +216,6 @@ public class NanoleafClient {
             if (method.equals(Method.PUT) && body != null) {
                 try (OutputStream outputStream = con.getOutputStream()) {
                     byte[] input = body.getBytes(StandardCharsets.UTF_8);
-                    System.out.println(Arrays.toString(input));
                     outputStream.write(input, 0, input.length);
                 }
             }
