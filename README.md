@@ -31,3 +31,4 @@ client.getEffects();
 - [ ] add tests?
 - [ ] improve `README.md`
 - [x] add example
+- [ ] add apiEndpoint to NanoleafClient constructor (allows users to change the API endpoint for Nanoleaf if, say, a new API version was released). 
