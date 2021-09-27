@@ -6,10 +6,10 @@ Credit to [this article](https://documenter.getpostman.com/view/1559645/RW1gEcCH
 
 
 ## todo:
-[-] publish to GitHub Maven
-[x] add docstrings
-[-] clean up http request code
-[-] return data
-[-] add promises
-[-] add tests?
-[-] improve `README.md`
+- [ ] publish to GitHub Maven
+- [x] add docstrings
+- [ ] clean up http request code
+- [ ] return data
+- [ ] add promises
+- [ ] add tests?
+- [ ] improve `README.md`
