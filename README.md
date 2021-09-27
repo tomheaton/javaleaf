@@ -15,7 +15,7 @@ Credit to [this article](https://documenter.getpostman.com/view/1559645/RW1gEcCH
 ```java
 import dev.tomheaton.NanoleafClient;
 
-NanoleafClient client = new NanoleafClient(":host:", ":accessToken:", 16021);
+NanoleafClient client = new NanoleafClient("192.168.4.20", "zbp3aHIDoj0Ox2iAr857WMFck58mOBaL", 16021);
 
 client.getEffects();
 ```
