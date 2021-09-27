@@ -6,6 +6,6 @@ public class App {
         System.out.print("hello world - javaleaf\n");
 
         //NanoleafClient client = new NanoleafClient("192.168.x.x", ":accessToken:");
-        NanoleafClient client = new NanoleafClient("192.168.x.x", 16021, ":accessToken:");
+        NanoleafClient client = new NanoleafClient(":ipAddress:", ":accessToken:", 16021);
     }
 }

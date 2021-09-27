@@ -15,19 +15,19 @@ public class NanoleafClient {
     final static int DEFAULT_PORT = 16021;
 
     String host;
-    int port;
     String accessToken;
+    int port;
     String baseUrl;
 
-    NanoleafClient(String host, int port, String accessToken) {
+    NanoleafClient(String host, String accessToken, int port) {
         this.host = host;
-        this.port = port;
         this.accessToken = accessToken;
+        this.port = port;
         this.baseUrl = "http://" + this.host + ":" + this.port + "/api/v1/" + this.accessToken;
     }
 
     NanoleafClient(String host, String accessToken) {
-        this(host, DEFAULT_PORT, accessToken);
+        this(host, accessToken, DEFAULT_PORT);
     }
 
     // TODO: this.
