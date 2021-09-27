@@ -1,11 +1,21 @@
 # javaleaf
+
 java nanoleaf
+Credit to [this article](https://documenter.getpostman.com/view/1559645/RW1gEcCH) on Postman for providing details on the API endpoints.
 
 
-Credit to [this article](https://documenter.getpostman.com/view/1559645/RW1gEcCH) on Postman for providing details on the API endpoints. 
+## example
 
+```java
+import dev.tomheaton.NanoleafClient;
+
+NanoleafClient client = new NanoleafClient("192.168.x.x", 16021, ":accessToken:");
+
+client.getEffects();
+```
 
 ## todo:
+
 - [ ] publish to GitHub Maven
 - [x] add docstrings
 - [ ] clean up http request code
@@ -13,3 +23,4 @@ Credit to [this article](https://documenter.getpostman.com/view/1559645/RW1gEcCH
 - [ ] add promises
 - [ ] add tests?
 - [ ] improve `README.md`
+- [x] add example
