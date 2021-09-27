@@ -21,7 +21,7 @@ client.getEffects();
 ```
 
 
-## todo:
+## todo
 
 - [ ] publish to GitHub Maven
 - [x] add docstrings
