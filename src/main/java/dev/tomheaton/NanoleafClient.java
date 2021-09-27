@@ -31,11 +31,11 @@ public class NanoleafClient {
     }
 
     // TODO: this.
-
     /**
      * The result returned will be a 32-character authorization token that you will use in all of your subsequent calls.
      */
-    public void addUser() {
+    public void addUser(String host) {
+        this.post("/new", null);
     }
 
     // TODO: this.
@@ -43,6 +43,7 @@ public class NanoleafClient {
      * Requires an authorization token of an existing user.
      */
     public void removeUser() {
+        this.delete("/", null);
     }
 
     /**
