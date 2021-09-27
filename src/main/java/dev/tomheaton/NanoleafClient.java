@@ -40,61 +40,119 @@ public class NanoleafClient {
     public void removeUser() {
     }
 
-    // Get all light controller info
+    /**
+     * Get all light controller info
+     */
     public void getStatus() {
         this.get("/");
     }
 
+    /**
+     * Get all light controller info
+     */
     public void isOn() {
         this.get("/state/on");
     }
 
+    /**
+     * Get all light controller info
+     */
     public void turnOn() {
         this.put("/state", "{\"on\": {\"value\": true}}");
     }
 
+    /**
+     * Get all light controller info
+     */
     public void turnOff() {
         this.put("/state", "{\"on\": {\"value\": false}}");
     }
 
+    /**
+     * Get all light controller info
+     *
+     * @param power power as a boolean (true=on, false=off)
+     */
     public void setPower(boolean power) {
         this.put("/state", "{\"on\": {\"value\": " + power + "}}");
     }
 
+    /**
+     * Get all light controller info
+     */
     public void getBrightness() {
         this.get("/state/brightness");
     }
 
+    /**
+     * Get all light controller info
+     *
+     * @param brightness brightness value (1-100)
+     */
     public void setBrightness(int brightness) {
         this.put("/state", "{\"brightness\": {\"value\": " + brightness + "}}");
     }
 
+    /**
+     * Get all light controller info
+     *
+     * @param brightness brightness value (1-100)
+     * @param duration the duration for the applied brightness, in seconds
+     */
     public void setBrightness(int brightness, int duration) {
         this.put("/state", "{\"brightness\": {\"value\": " + brightness + ", \"duration\": " + duration + "}}");
     }
 
+    /**
+     * Get all light controller info
+     */
     public void getHue() {
         this.get("/state/hue");
     }
 
+    /**
+     * Get all light controller info
+     *
+     * @param hue hue value
+     */
     public void setHue(int hue) {
         this.put("/state", "{\"hue\": {\"value\": " + hue + "}}");
     }
 
+    /**
+     *  Get the current saturation value
+     */
     public void getSaturation() {
         this.get("/state/sat");
     }
 
+    /**
+     * Get all light controller info
+     *
+     * @param saturation saturation value
+     */
     public void setSaturation(int saturation) {
         this.put("/state", "{\"sat\": {\"value\": " + saturation + "}}");
     }
 
-    // Min and max values returned for ct are wrong. They should be 1200-6500, but are returned 0-100.
+    /**
+     * Get all light controller info
+     * <p>
+     * Note: Min and max values returned for ct are wrong. They should be 1200-6500, but are returned 0-100.
+     * </p>
+     */
     public void getColorTemperature() {
         this.get("/state/ct");
     }
 
-    // Min and max values returned for ct are wrong. They should be 1200-6500, but are returned 0-100.
+    /**
+     * Get all light controller info
+     * <p>
+     * Note: Min and max values returned for ct are wrong. They should be 1200-6500, but are returned 0-100.
+     * </p>
+     *
+     * @param colorTemperature color temperature value (1-100)
+     */
     public void setColorTemperature(int colorTemperature) {
         this.put("/state", "{\"ct\": {\"value\": " + colorTemperature + "}}");
     }
