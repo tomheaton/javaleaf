@@ -31,45 +31,50 @@ public class NanoleafClient {
     }
 
     // TODO: this.
-    // The result returned will be a 32-character authorization token that you will use in all of your subsequent calls.
+
+    /**
+     * The result returned will be a 32-character authorization token that you will use in all of your subsequent calls.
+     */
     public void addUser() {
     }
 
     // TODO: this.
-    // Requires an authorization token of an existing user.
+    /**
+     * Requires an authorization token of an existing user.
+     */
     public void removeUser() {
     }
 
     /**
-     * Get all light controller info
+     * Get all light controller info.
      */
     public void getStatus() {
         this.get("/");
     }
 
     /**
-     * Get all light controller info
+     * Get all light controller info.
      */
     public void isOn() {
         this.get("/state/on");
     }
 
     /**
-     * Get all light controller info
+     * Turn on the light.
      */
     public void turnOn() {
         this.put("/state", "{\"on\": {\"value\": true}}");
     }
 
     /**
-     * Get all light controller info
+     * Turn off the light.
      */
     public void turnOff() {
         this.put("/state", "{\"on\": {\"value\": false}}");
     }
 
     /**
-     * Get all light controller info
+     * Set the current power mode.
      *
      * @param power power as a boolean (true=on, false=off)
      */
@@ -78,14 +83,14 @@ public class NanoleafClient {
     }
 
     /**
-     * Get all light controller info
+     * Get the current brightness value.
      */
     public void getBrightness() {
         this.get("/state/brightness");
     }
 
     /**
-     * Get all light controller info
+     * Set the current brightness level.
      *
      * @param brightness brightness value (1-100)
      */
@@ -94,7 +99,7 @@ public class NanoleafClient {
     }
 
     /**
-     * Get all light controller info
+     * Set the current brightness level, with a duration.
      *
      * @param brightness brightness value (1-100)
      * @param duration the duration for the applied brightness, in seconds
@@ -104,14 +109,14 @@ public class NanoleafClient {
     }
 
     /**
-     * Get all light controller info
+     * Get the current hue value.
      */
     public void getHue() {
         this.get("/state/hue");
     }
 
     /**
-     * Get all light controller info
+     * Set the current hue value.
      *
      * @param hue hue value
      */
@@ -120,14 +125,14 @@ public class NanoleafClient {
     }
 
     /**
-     *  Get the current saturation value
+     *  Get the current saturation level.
      */
     public void getSaturation() {
         this.get("/state/sat");
     }
 
     /**
-     * Get all light controller info
+     * Set the current saturation level.
      *
      * @param saturation saturation value
      */
@@ -136,7 +141,7 @@ public class NanoleafClient {
     }
 
     /**
-     * Get all light controller info
+     * Get the current color temperature.
      * <p>
      * Note: Min and max values returned for ct are wrong. They should be 1200-6500, but are returned 0-100.
      * </p>
@@ -146,7 +151,7 @@ public class NanoleafClient {
     }
 
     /**
-     * Get all light controller info
+     * Set the current color temperature.
      * <p>
      * Note: Min and max values returned for ct are wrong. They should be 1200-6500, but are returned 0-100.
      * </p>
@@ -157,87 +162,141 @@ public class NanoleafClient {
         this.put("/state", "{\"ct\": {\"value\": " + colorTemperature + "}}");
     }
 
+    /**
+     *  Get the current color mode.
+     */
     public void getColorMode() {
         this.get("/state/colorMode");
     }
 
+    /**
+     *  Get the currently selected lighting effect.
+     */
     public void getSelectedEffect() {
         this.get("/effects/select");
     }
 
+    /**
+     *  Set the current lighting effect.
+     *
+     * @param effect the name of the effect
+     */
     public void setSelectedEffect(String effect) {
         this.put("/effects", "{\"select\": \"" + effect + "\"}}");
     }
 
+    /**
+     *  Get all the lighting effects.
+     */
     public void getEffects() {
         this.get("/effects/effectsList");
     }
 
     // TODO: this.
+    /**
+     *  Set all the lighting effects.
+     */
     public void setEffects(String effect) {
         this.put("/effects", "{\"write\" : {\"command\" : \"request\", \"animName\" : " + effect + "}}");
     }
 
+    /**
+     *  Get the current panel layout.
+     */
     public void getLayout() {
         this.get("/panelLayout/layout");
     }
 
+    /**
+     *  Get the Global Orientation.
+     */
     public void getGlobalOrientation() {
         this.get("/panelLayout/globalOrientation");
     }
 
+    /**
+     *  Set the Global Orientation.
+     *
+     * @param globalOrientation the global orientation index
+     */
     public void setGlobalOrientation(int globalOrientation) {
         this.put("/panelLayout/globalOrientation", "{\"globalOrientation\": {\"value\": " + globalOrientation + "}}");
     }
 
-    // Causes the panels to flash in unison. This is typically used to help users differentiate between multiple panels.
+    /**
+     *  Causes the panels to flash in unison. This is typically used to help users differentiate between multiple panels.
+     */
     public void identify() {
         this.put("/identify", null);
     }
 
-    // Indicates if the Rhythm is connected to the Light Panels or not.
+    /**
+     * Indicates if the Rhythm is connected to the Light Panels or not.
+     */
     public void getRhythmConnected() {
         this.get("/rhythm/rhythmConnected");
     }
 
-    // Indicates if the Rhythm's microphone is currently active or not.
+    /**
+     * Indicates if the Rhythm's microphone is currently active or not.
+     */
     public void getRhythmActive() {
         this.get("/rhythm/rhythmActive");
     }
 
-    // Indicates the Rhythm's Id in the Light Panel system.
+    /**
+     * Indicates the Rhythm's Id in the Light Panel system.
+     */
     public void getRhythmId() {
         this.get("/rhythm/rhythmId");
     }
 
-    // Indicates the Rhythm's hardware version.
+    /**
+     * Indicates the Rhythm's hardware version.
+     */
     public void getRhythmHardwareVersion() {
         this.get("/rhythm/hardwareVersion");
     }
 
-    // Indicates the Rhythm's firmware version.
+    /**
+     * Indicates the Rhythm's firmware version.
+     */
     public void getRhythmFirmwareVersion() {
         this.get("/rhythm/firmwareVersion");
     }
 
-    // Indicates if an aux cable (3.5mm) is currently connected to the Rhythm.
+    /**
+     * Indicates if an aux cable (3.5mm) is currently connected to the Rhythm.
+     */
     public void getRhythmAux() {
         this.get("/rhythm/auxAvailable");
     }
 
-    // Allows the user to control the sound source for the Rhythm.
-    // Writing 0 to this field sets the Rhythm's sound source to the microphone, and writing 1 to the field sets the sound source to the aux cable.
+    /**
+     * Allows the user to control the sound source for the Rhythm.
+     * <p>
+     * Note: Writing 0 to this field sets the Rhythm's sound source to the microphone, and writing 1 to the field sets the sound source to the aux cable.
+     * </p>
+     *
+     * @param mode the index of the selected mode
+     */
     public void getRhythmMode(int mode) {
         this.put("/rhythm/rhythmMode", "{\"rhythmMode\": " + mode + "}");
     }
 
-    // Allows the user to control the sound source for the Rhythm.
-    // Writing 0 to this field sets the Rhythm's sound source to the microphone, and writing 1 to the field sets the sound source to the aux cable.
+    /**
+     * Allows the user to control the sound source for the Rhythm.
+     * <p>
+     * Note: Writing 0 to this field sets the Rhythm's sound source to the microphone, and writing 1 to the field sets the sound source to the aux cable.
+     * </p>
+     */
     public void setRhythmMode() {
         this.get("/rhythm/rhythmMode");
     }
 
-    // Indicates the position and orientation of the Rhythm in the Light Panels' layout.
+    /**
+     * Indicates the position and orientation of the Rhythm in the Light Panels' layout.
+     */
     public void setRhythmPosition() {
         this.get("/rhythm/rhythmPos");
     }
