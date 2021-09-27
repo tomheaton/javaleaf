@@ -30,20 +30,20 @@ public class NanoleafClient {
         this(host, accessToken, DEFAULT_PORT);
     }
 
-    // TODO: this.
+    // TODO: this. (needs to be static)
     /**
      * The result returned will be a 32-character authorization token that you will use in all of your subsequent calls.
      */
     public void addUser(String host) {
-        this.post("/new", null);
+        //this.post("/new", null);
     }
 
-    // TODO: this.
+    // TODO: this. (needs to be static)
     /**
      * Requires an authorization token of an existing user.
      */
     public void removeUser() {
-        this.delete("/", null);
+        //this.delete("/", null);
     }
 
     /**
