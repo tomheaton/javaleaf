@@ -1,8 +1,6 @@
 # javaleaf
 
 java nanoleaf
-Credit to [this article](https://documenter.getpostman.com/view/1559645/RW1gEcCH) on Postman for providing details on the API endpoints.
-
 
 ## example
 
@@ -33,3 +31,8 @@ client.getEffects();
 - [x] add example
 - [ ] add apiEndpoint to NanoleafClient constructor (allows users to change the API endpoint for Nanoleaf if, say, a new API version was released). 
 - [ ] add auth generation
+
+## credits
+
+- Jack Lafond's [nanoleaf.js](https://github.com/jacc/nanoleaf.js/) for the idea and base structure
+- [this article](https://documenter.getpostman.com/view/1559645/RW1gEcCH) on Postman for providing details on the API endpoints
